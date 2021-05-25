@@ -31,12 +31,12 @@ public class Main {
         floors = IntStream.rangeClosed(1, numberOfFloors).mapToObj(Floor::new).collect(Collectors.toList());
 
         Double liftingCapacity = 300.0;
-        Double speed = 4.5;
-        Double doorClosingSpeed = 2.5;
-        Double doorOpeningTime = 2.5;
+        Double timeMovementElevatorToOneFloorInSeconds = 4.5;
+        Double doorClosingTimeInSeconds = 2.5;
+        Double doorOpeningTimeInSeconds = 2.5;
 
         elevators = IntStream.range(0, numberOfElevators).mapToObj(i -> new Elevator(Integer.toUnsignedLong(i), liftingCapacity,
-                speed, doorClosingSpeed, doorOpeningTime)).collect(Collectors.toList());
+                timeMovementElevatorToOneFloorInSeconds, doorClosingTimeInSeconds, doorOpeningTimeInSeconds)).collect(Collectors.toList());
 
         Building building = new Building(numberOfFloors, floors, elevators);
         for (Elevator elevator : elevators) {
